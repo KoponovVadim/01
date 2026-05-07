@@ -1,0 +1,95 @@
+---
+import LeadPopup from './LeadPopup.vue';
+---
+
+<header class="header">
+
+  <div class="container">
+
+    <div class="header__wrapper">
+
+      <!-- LOGO -->
+
+      <a href="/" class="header__logo">
+        01вкладка<span>.рф</span>
+      </a>
+
+      <!-- DESKTOP NAV -->
+
+      <nav class="header__nav">
+
+        <a href="#projects">
+          проекты
+        </a>
+
+        <a href="#services">
+          услуги
+        </a>
+
+        <a href="#stack">
+          стек
+        </a>
+
+        <a href="#calculator">
+          цены
+        </a>
+
+        <a href="#contacts">
+          контакты
+        </a>
+
+      </nav>
+
+      <!-- ACTIONS -->
+
+      <div class="header__actions">
+
+        <a
+          href="#"
+          class="header__link"
+        >
+          telegram
+        </a>
+
+        <a
+          href="tel:88005553535"
+          class="header__link"
+        >
+          позвонить
+        </a>
+
+        <button
+          class="header__button"
+          data-popup
+          type="button"
+        >
+          обсудить проект
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</header>
+
+  <!-- POPUP -->
+
+  <LeadPopup client:load />
+<script is:inline>
+  document.addEventListener('click', (e) => {
+
+    const trigger = e.target.closest('[data-popup]');
+
+    if (!trigger) return;
+
+    e.preventDefault();
+
+    window.dispatchEvent(
+      new Event('open-popup')
+    );
+
+  });
+</script>
