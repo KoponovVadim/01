@@ -4,6 +4,7 @@ import HeroSection from '@components/hero/HeroSection.astro';
 import Header from '@components/layout/Header.astro';
 import Stack from '@components/sections/Stack.astro'; 
 import Tabs from '@components/sections/Tabs.vue'; 
+import Calc from '@components/sections/Calc.vue'; 
 ---
 
 <MainLayout>
@@ -11,4 +12,5 @@ import Tabs from '@components/sections/Tabs.vue';
   <HeroSection />
   <Stack />
   <Tabs client:load/>
+  <Calc client:load/>
 </MainLayout>
