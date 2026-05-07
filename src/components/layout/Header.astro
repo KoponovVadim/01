@@ -1,0 +1,42 @@
+---
+import MobileMenu from './MobileMenu.vue';
+---
+
+<header class="header">
+
+  <div class="container">
+
+    <div class="header__wrapper">
+
+      <a href="/" class="header__logo">
+        01вкладка<span>.рф</span>
+      </a>
+
+      <nav class="header__nav">
+
+        <a href="#">проекты</a>
+        <a href="#">услуги</a>
+        <a href="#">о студии</a>
+        <a href="#">процесс</a>
+        <a href="#">цены</a>
+        <a href="#">контакты</a>
+
+      </nav>
+
+      <div class="header__actions">
+
+        <a href="#" class="header__button">
+
+          обсудить проект
+
+        </a>
+
+        <MobileMenu client:load/>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>

@@ -1,0 +1,441 @@
+/* ======================================
+   BURGER
+====================================== */
+
+.mobile-menu__burger {
+  position: relative;
+
+  width: 50px;
+  height: 50px;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.03);
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  span {
+    position: absolute;
+
+    left: 50%;
+
+    width: 16px;
+    height: 2px;
+
+    border-radius: 999px;
+
+    background: #fff;
+
+    transition:
+      transform .3s ease;
+
+    &:nth-child(1) {
+      top: 20px;
+
+      transform:
+        translateX(-50%);
+    }
+
+    &:nth-child(2) {
+      top: 28px;
+
+      transform:
+        translateX(-50%);
+    }
+  }
+
+  &.active {
+
+    span {
+
+      &:nth-child(1) {
+        top: 24px;
+
+        transform:
+          translateX(-50%)
+          rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        top: 24px;
+
+        transform:
+          translateX(-50%)
+          rotate(-45deg);
+      }
+    }
+  }
+}
+
+/* ======================================
+   OVERLAY
+====================================== */
+
+.mobile-menu__overlay {
+   position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100dvh;
+
+  z-index: 110;
+
+  background:
+    rgba(5,7,11,.72);
+
+  backdrop-filter: blur(8px);
+}
+
+/* ======================================
+   MENU
+====================================== */
+
+.mobile-menu {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100dvh;
+
+  z-index: 120;
+
+  overflow-y: auto;
+
+  background: #05070b;
+}
+
+/* ======================================
+   CONTAINER
+====================================== */
+
+.mobile-menu__container {
+  width: min(1740px, calc(100% - 80px));
+
+  min-height: 100dvh;
+
+  margin: 0 auto;
+
+  padding:
+    40px
+    0
+    80px;
+}
+
+/* ======================================
+   TOP
+====================================== */
+
+.mobile-menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 80px;
+}
+
+/* ======================================
+   LOGO
+====================================== */
+
+.mobile-menu__logo {
+  color: #f3f5f7;
+
+  font-family:
+    'Tektur',
+    sans-serif;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  letter-spacing: -.04em;
+
+  span {
+    color: #d9ff00;
+  }
+}
+
+/* ======================================
+   CLOSE
+====================================== */
+
+.mobile-menu__close {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  border-radius: 14px;
+
+  background:
+    rgba(255,255,255,.03);
+
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* ======================================
+   GRID
+====================================== */
+
+.mobile-menu__grid {
+  display: grid;
+
+  grid-template-columns:
+    1.2fr
+    .8fr;
+
+  gap: 80px;
+}
+
+/* ======================================
+   NAV
+====================================== */
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+
+  a {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+
+    padding:
+      18px
+      0;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.05);
+
+    text-decoration: none;
+
+    .num {
+      color:
+        rgba(217,255,0,.7);
+
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .text {
+      color: #f3f5f7;
+
+      font-family:
+        'Tektur',
+        sans-serif;
+
+      font-size: 42px;
+      font-weight: 700;
+
+      line-height: 1;
+
+      letter-spacing: -.04em;
+
+      transition:
+        color .25s ease;
+    }
+
+    &:hover {
+
+      .text {
+        color: #d9ff00;
+      }
+    }
+  }
+}
+
+/* ======================================
+   SIDE
+====================================== */
+
+.mobile-menu__side {
+  padding-top: 12px;
+}
+
+/* ======================================
+   WIDGET
+====================================== */
+
+.mobile-widget {
+  padding: 24px;
+
+  margin-bottom: 20px;
+
+  border:
+    1px solid rgba(255,255,255,.06);
+
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,.025);
+
+  &__label {
+    display: block;
+
+    margin-bottom: 16px;
+
+    color:
+      rgba(255,255,255,.42);
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+  }
+
+  &__value {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #d9ff00;
+
+    font-family:
+      'Tektur',
+      sans-serif;
+
+    font-size: 68px;
+
+    line-height: .9;
+  }
+
+  &__meta {
+    color:
+      rgba(255,255,255,.52);
+
+    font-size: 14px;
+  }
+}
+
+/* ======================================
+   CONTACTS
+====================================== */
+
+.mobile-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .label {
+      color:
+        rgba(255,255,255,.4);
+
+      font-size: 11px;
+
+      text-transform: uppercase;
+    }
+
+    a {
+      color: #fff;
+
+      font-size: 18px;
+      font-weight: 600;
+
+      text-decoration: none;
+
+      transition:
+        color .25s ease;
+
+      &:hover {
+        color: #d9ff00;
+      }
+    }
+  }
+}
+
+/* ======================================
+   ANIMATIONS
+====================================== */
+
+.overlay-enter-active,
+.overlay-leave-active {
+  transition:
+    opacity .3s ease;
+}
+
+.overlay-enter-from,
+.overlay-leave-to {
+  opacity: 0;
+}
+
+.menu-enter-active,
+.menu-leave-active {
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+
+  transform:
+    translateY(-20px);
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 1100px) {
+
+  .mobile-menu__grid {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .mobile-menu__container {
+    width: calc(100% - 32px);
+  }
+
+  .mobile-menu__logo {
+    font-size: 24px;
+  }
+
+  .mobile-menu__top {
+    margin-bottom: 50px;
+  }
+
+  .mobile-menu__nav {
+
+    a {
+
+      gap: 18px;
+
+      .text {
+        font-size: 28px;
+      }
+    }
+  }
+
+  .mobile-widget {
+
+    &__value {
+      font-size: 52px;
+    }
+  }
+}

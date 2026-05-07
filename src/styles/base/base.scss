@@ -1,0 +1,42 @@
+:root {
+  --bg: #05070b;
+
+  --text: #f3f5f7;
+  --muted: #97a0ad;
+
+  --lime: #d9ff00;
+
+  --border: rgba(255,255,255,.08);
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg);
+
+  color: var(--text);
+
+  
+  font-family: Inter, sans-serif;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  overflow-x: hidden;
+}
+
+/* Selection */
+
+::selection {
+  background: var(--lime);
+  color: #000;
+}
+
+/* Container */
+
+.container {
+  width: min(1440px, calc(100% - 80px));
+  margin: 0 auto;
+}
