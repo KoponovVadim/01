@@ -1,7 +1,14 @@
 ---
 import MainLayout from '@layouts/MainLayout.astro';
+import HeroSection from '@components/hero/HeroSection.astro';
+import Header from '@components/layout/Header.astro';
+import Stack from '@components/sections/Stack.astro'; 
+import Tabs from '@components/sections/Tabs.vue'; 
 ---
 
 <MainLayout>
- <h1>Работает</h1>
+  <Header />
+  <HeroSection />
+  <Stack />
+  <Tabs client:load/>
 </MainLayout>

@@ -1,0 +1,205 @@
+---
+import heroImage from '@assets/images/hero_main.webp';
+
+---
+
+<section class="hero">
+
+  <!-- Фоновая сцена -->
+
+  <div class="hero__background">
+    <img
+      src={heroImage.src}
+      alt=""
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Noise overlay -->
+
+  <div class="hero__noise"></div>
+
+  <div class="container">
+
+    <div class="hero__grid">
+
+      <!-- Левая колонка -->
+
+      <div class="hero__content">
+
+        <div class="hero__badge">
+          <span></span>
+          digital-студия
+        </div>
+
+        <h1 class="hero__title">
+          ВКЛАДКИ,<br />
+          КОТОРЫЕ<br />
+          НЕ ЗАКРЫВАЮТ.
+        </h1>
+
+        <p class="hero__description">
+          Делаем сайты и интерфейсы,
+          которые выглядят как дорогой digital-продукт,
+          а не шаблонный корпоративный лендинг.
+        </p>
+
+        <div class="hero__actions">
+
+          <a
+            href="#"
+            class="hero__button hero__button--primary"
+          >
+            обсудить проект
+          </a>
+
+          <a
+            href="#"
+            class="hero__button hero__button--secondary"
+          >
+            смотреть кейсы
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Правая зона -->
+
+      <div class="hero__infographic">
+
+        <!-- Фоновая сетка -->
+
+        <div class="hero__infographic-grid"></div>
+
+        <!-- Контейнер со статистикой -->
+
+        <div class="hero__stats-container">
+
+          <div class="hero__stats">
+
+            <!-- ROW 1 -->
+
+            <div class="hero-stat">
+
+              <span class="hero-stat__label">
+                система онлайн
+              </span>
+
+              <strong class="hero-stat__value">
+                12
+              </strong>
+
+              <span class="hero-stat__meta">
+                активных сборок
+              </span>
+
+              <div class="hero-stat__graph"></div>
+
+            </div>
+
+            <div class="hero-stat">
+
+              <span class="hero-stat__label">
+                запуск за неделю
+              </span>
+
+              <strong class="hero-stat__value">
+                4
+              </strong>
+
+              <span class="hero-stat__meta">
+                новых проекта
+              </span>
+
+              <div class="hero-stat__bars">
+
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+
+              </div>
+
+            </div>
+
+            <!-- ROW 2 -->
+
+            <div class="hero-stat">
+
+              <span class="hero-stat__label">
+                средний срок запуска
+              </span>
+
+              <strong class="hero-stat__value">
+                7 <span>дней</span>
+              </strong>
+
+              <span class="hero-stat__meta">
+                от концепта до старта
+              </span>
+
+              <div class="hero-stat__icon">
+                ⚡
+              </div>
+
+            </div>
+
+            <div class="hero-stat">
+
+              <span class="hero-stat__label">
+                статус
+              </span>
+
+              <div class="hero-stat__status">
+
+                <span class="hero-stat__status-text">
+                  в работе
+                </span>
+
+                <span class="hero-stat__status-dot"></span>
+
+              </div>
+
+              <span class="hero-stat__meta">
+                5 проектов
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Блок ссылки внизу -->
+
+        <div class="hero__projects-link">
+
+          <a href="#projects" class="hero__projects-trigger">
+
+            <span>смотреть открытые вкладки</span>
+
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
