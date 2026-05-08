@@ -209,23 +209,25 @@ const submitForm = async () => {
 
   try {
 
-    /*
-      FASTAPI ЗАГОТОВКА
+    const response = await fetch('/api/lead', {
 
-      await fetch('/api/lead', {
-        method: 'POST',
+      method: 'POST',
 
-        headers: {
-          'Content-Type': 'application/json',
-        },
+      headers: {
+        'Content-Type': 'application/json',
+      },
 
-        body: JSON.stringify(form),
-      });
-    */
+      body: JSON.stringify({
+        name: form.name,
+        contact: form.contact,
+        message: form.message,
+      }),
 
-    await new Promise(resolve =>
-      setTimeout(resolve, 1000)
-    );
+    });
+
+    if (!response.ok) {
+      throw new Error('Ошибка отправки');
+    }
 
     success.value = true;
 
@@ -244,6 +246,8 @@ const submitForm = async () => {
   } catch (err) {
 
     console.error(err);
+
+    alert('Ошибка отправки формы');
 
   } finally {
 

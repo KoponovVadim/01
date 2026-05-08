@@ -177,10 +177,12 @@ import footerMascot from '@assets/images/footer_mascot.webp';
       <span>
         сайты, которые не закрывают
       </span>
-
-      <a href="#">
-        политика конфиденциальности
-      </a>
+        <a
+          href="#"
+          onclick="window.dispatchEvent(new Event('open-policy')); return false;"
+        >
+          политика конфиденциальности
+        </a>
 
     </div>
 

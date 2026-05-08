@@ -6,6 +6,7 @@ import Stack from '@components/sections/Stack.astro';
 import Tabs from '@components/sections/Tabs.vue'; 
 import Calc from '@components/sections/Calc.vue'; 
 import Footer from '@components/layout/Footer.astro';
+import CookieBanner from '../components/CookieBanner.vue';
 ---
 
 <MainLayout>
@@ -15,4 +16,5 @@ import Footer from '@components/layout/Footer.astro';
   <Calc client:load/>
   <Stack />
   <Footer />
+  <CookieBanner client:load/>
 </MainLayout>

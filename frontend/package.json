@@ -14,7 +14,7 @@
   "dependencies": {
     "@astrojs/vue": "^6.0.1",
     "@studio-freight/lenis": "^1.0.42",
-    "astro": "^6.2.2",
+    "astro": "^6.3.1",
     "gsap": "^3.15.0",
     "vue": "^3.5.34"
   },

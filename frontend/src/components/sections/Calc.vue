@@ -404,7 +404,7 @@ const projects = [
   {
     id: 'concept',
     title: 'Концепт',
-    description: 'UI, структура и ключевые экраны',
+    description: 'UI, структура, верстка',
     icon: '◎',
     basePrice: 20000
   },
@@ -420,7 +420,7 @@ const projects = [
     title: 'Интернет-магазин',
     description: 'Каталог, фильтры и ecommerce',
     icon: '◌',
-    basePrice: 120000
+    basePrice: 80000
   }
 ]
 
@@ -459,7 +459,7 @@ const options = reactive([
     id: 2,
     group: 'marketing',
     label: 'SEO оптимизация',
-    active: true,
+    active: false,
     priceAdd: 5000
   },
   {
@@ -474,14 +474,14 @@ const options = reactive([
     group: 'performance',
     label: 'Кеширование',
     active: false,
-    priceAdd: 2000
+    priceAdd: 1000
   },
   {
     id: 5,
     group: 'performance',
     label: 'Docker Compose',
     active: false,
-    priceAdd: 3000
+    priceAdd: 1000
   },
   {
     id: 6,
@@ -494,22 +494,22 @@ const options = reactive([
     id: 7,
     group: 'visual',
     label: 'GSAP анимации',
-    active: true,
-    priceAdd: 8000
+    active: false,
+    priceAdd: 10000
   },
   {
     id: 8,
     group: 'visual',
     label: '3D визуализация',
     active: false,
-    priceAdd: 10000
+    priceAdd: 15000
   },
   {
     id: 9,
     group: 'visual',
     label: 'Лид-формы',
-    active: true,
-    priceAdd: 4000
+    active: false,
+    priceAdd: 1000
   }
 ])
 
@@ -563,8 +563,44 @@ const formattedPrice = computed(() =>
   totalPrice.value.toLocaleString('ru-RU')
 )
 
-function scrollToContact() {
-  console.log('contact')
+async function scrollToContact() {
+
+  try {
+
+    await fetch('/api/calculator', {
+
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({
+
+        type: currentProject.value.title,
+
+        cms: currentCMS.value.label,
+
+        options: activeOptions.value.map(o => o.label),
+
+        price: totalPrice.value,
+
+        time: estimatedTime.value,
+
+      }),
+
+    });
+
+    alert('Конфигурация отправлена');
+
+  } catch (err) {
+
+    console.error(err);
+
+    alert('Ошибка отправки');
+
+  }
+
 }
 
 watch(totalPrice, async () => {

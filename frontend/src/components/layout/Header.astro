@@ -10,58 +10,33 @@ import LeadPopup from './LeadPopup.vue';
 
       <!-- LOGO -->
 
-      <a href="/" class="header__logo">
+      <a
+        href="/"
+        class="header__logo"
+        aria-label="На главную"
+      >
         01вкладка<span>.рф</span>
       </a>
-
-      <!-- DESKTOP NAV -->
-
-      <nav class="header__nav">
-
-        <a href="#projects">
-          проекты
-        </a>
-
-        <a href="#services">
-          услуги
-        </a>
-
-        <a href="#stack">
-          стек
-        </a>
-
-        <a href="#calculator">
-          цены
-        </a>
-
-        <a href="#contacts">
-          контакты
-        </a>
-
-      </nav>
 
       <!-- ACTIONS -->
 
       <div class="header__actions">
 
         <a
-          href="#"
-          class="header__link"
+          href="https://t.me/yourusername"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="header__telegram"
+          aria-label="Написать в Telegram"
         >
           telegram
-        </a>
-
-        <a
-          href="tel:88005553535"
-          class="header__link"
-        >
-          позвонить
         </a>
 
         <button
           class="header__button"
           data-popup
           type="button"
+          aria-label="Обсудить проект"
         >
           обсудить проект
         </button>
@@ -72,12 +47,12 @@ import LeadPopup from './LeadPopup.vue';
 
   </div>
 
-
 </header>
 
-  <!-- POPUP -->
+<!-- POPUP -->
 
-  <LeadPopup client:load />
+<LeadPopup client:load />
+
 <script is:inline>
   document.addEventListener('click', (e) => {
 
