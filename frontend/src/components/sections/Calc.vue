@@ -1,646 +1,350 @@
-<template>
-  <section class="calc-section">
-
-    <div class="calc-layout">
-
-      <!-- LEFT -->
-      <aside class="calc-left">
-
-        <div class="calc-label">
-          <span></span>
-          калькулятор
-        </div>
-
-        <h1 class="calc-title">
-          РАССЧИТАЕМ
-          <br />
-          СТОИМОСТЬ
-          <br />
-          <span>ВАШЕГО ПРОЕКТА</span>
-        </h1>
-
-        <p class="calc-description">
-          Соберите digital-вкладку под ваш бизнес
-          и получите предварительную оценку проекта.
-        </p>
-
-        <div class="calc-visual">
-
-          <div class="folder folder-back"></div>
-          <div class="folder folder-middle"></div>
-
-          <div class="folder folder-front">
-
-            <div class="folder-number">
-              01
-            </div>
-
-            <div class="folder-name">
-              launch
-            </div>
-
-            <div class="folder-lights">
-              <span></span>
-              <span></span>
-            </div>
-
-          </div>
-
-        </div>
-
-        <div class="left-features">
-
-          <div class="left-feature">
-            <strong>1–2 минуты</strong>
-            <span>предварительный расчёт</span>
-          </div>
-
-          <div class="left-feature">
-            <strong>Точная оценка</strong>
-            <span>под задачи проекта</span>
-          </div>
-
-          <div class="left-feature">
-            <strong>Без спама</strong>
-            <span>только связь по проекту</span>
-          </div>
-
-        </div>
-
-      </aside>
-
-      <!-- RIGHT -->
-      <div class="calc-right">
-
-        <!-- PROJECTS -->
-        <div class="calc-block">
-
-          <div class="block-head">
-
-            <div class="block-title">
-              <span>01</span>
-              ВЫБЕРИТЕ ТИП ПРОЕКТА
-            </div>
-
-            <div class="block-step">
-              шаг 1 / 3
-            </div>
-
-          </div>
-
-          <div class="project-grid">
-
-            <button
-              v-for="project in projects"
-              :key="project.id"
-              class="project-card"
-              :class="{ active: selectedProject === project.id }"
-              @click="selectedProject = project.id"
-            >
-
-              <div class="project-icon">
-                {{ project.icon }}
-              </div>
-
-              <div class="project-content">
-
-                <h4>
-                  {{ project.title }}
-                </h4>
-
-                <p>
-                  {{ project.description }}
-                </p>
-
-                <div class="project-start-price">
-                  от {{ project.basePrice.toLocaleString('ru-RU') }} ₽
-                </div>
-
-              </div>
-
-            </button>
-
-          </div>
-
-        </div>
-
-        <!-- CMS -->
-        <div class="calc-block">
-
-          <div class="block-head">
-
-            <div class="block-title">
-              <span>02</span>
-              НУЖНА ЛИ АДМИН-ПАНЕЛЬ?
-            </div>
-
-            <div class="block-step">
-              шаг 2 / 3
-            </div>
-
-          </div>
-
-          <div class="admin-grid">
-
-            <button
-              v-for="cms in cmsOptions"
-              :key="cms.id"
-              class="admin-card"
-              :class="{ active: selectedCMS === cms.id }"
-              @click="selectedCMS = cms.id"
-            >
-
-              <span class="admin-name">
-                {{ cms.label }}
-              </span>
-
-              <span
-                v-if="cms.priceAdd"
-                class="admin-price"
-              >
-                +{{ cms.priceAdd.toLocaleString('ru-RU') }} ₽
-              </span>
-
-            </button>
-
-          </div>
-
-        </div>
-
-        <!-- OPTIONS -->
-        <div class="calc-block">
-
-          <div class="block-head">
-
-            <div class="block-title">
-              <span>03</span>
-              ДОПОЛНИТЕЛЬНЫЕ ВОЗМОЖНОСТИ
-            </div>
-
-            <div class="block-step">
-              шаг 3 / 3
-            </div>
-
-          </div>
-
-          <div class="options-groups">
-
-            <!-- продвижение -->
-            <div class="options-group">
-
-              <div class="group-title">
-                Продвижение
-              </div>
-
-              <div class="options-grid">
-
-                <div
-                  v-for="option in marketingOptions"
-                  :key="option.id"
-                  class="option-row"
-                >
-
-                  <span class="option-name">
-                    {{ option.label }}
-                  </span>
-
-                  <button
-                    class="toggle"
-                    :class="{ active: option.active }"
-                    @click="option.active = !option.active"
-                  >
-                    <span class="toggle-lever"></span>
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- производительность -->
-            <div class="options-group">
-
-              <div class="group-title">
-                Производительность
-              </div>
-
-              <div class="options-grid">
-
-                <div
-                  v-for="option in performanceOptions"
-                  :key="option.id"
-                  class="option-row"
-                >
-
-                  <span class="option-name">
-                    {{ option.label }}
-                  </span>
-
-                  <button
-                    class="toggle"
-                    :class="{ active: option.active }"
-                    @click="option.active = !option.active"
-                  >
-                    <span class="toggle-lever"></span>
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <!-- визуал -->
-            <div class="options-group">
-
-              <div class="group-title">
-                Визуал
-              </div>
-
-              <div class="options-grid">
-
-                <div
-                  v-for="option in visualOptions"
-                  :key="option.id"
-                  class="option-row"
-                >
-
-                  <span class="option-name">
-                    {{ option.label }}
-                  </span>
-
-                  <button
-                    class="toggle"
-                    :class="{ active: option.active }"
-                    @click="option.active = !option.active"
-                  >
-                    <span class="toggle-lever"></span>
-                  </button>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <!-- RESULT -->
-        <div class="result-box">
-
-          <div class="result-left">
-
-            <div class="summary-top">
-
-              <div>
-
-                <div class="summary-label">
-                  КОНФИГУРАЦИЯ ПРОЕКТА
-                </div>
-
-                <h3>
-                  {{ currentProject.title }}
-                </h3>
-
-              </div>
-
-              <div class="summary-badges">
-
-                <div class="summary-time">
-                  ~ {{ estimatedTime }}
-                </div>
-
-                <div class="status-badge">
-                  готов к запуску
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="summary-grid">
-
-              <div class="summary-row">
-                <span>Тип проекта</span>
-                <strong>{{ currentProject.title }}</strong>
-              </div>
-
-              <div class="summary-row">
-                <span>Админ-панель</span>
-                <strong>{{ currentCMS.label }}</strong>
-              </div>
-
-              <div class="summary-row">
-                <span>Активных опций</span>
-                <strong>{{ activeOptions.length }}</strong>
-              </div>
-
-              <div class="summary-row">
-                <span>Срок реализации</span>
-                <strong>{{ estimatedTime }}</strong>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="result-right">
-
-            <div class="total-label">
-              Предварительная стоимость
-            </div>
-
-            <div
-              ref="priceRef"
-              class="total-value"
-            >
-              {{ formattedPrice }} ₽
-            </div>
-
-            <div class="total-meta">
-              Точная стоимость определяется
-              после обсуждения проекта.
-            </div>
-
-            <button
-              class="discuss-btn"
-              @click="scrollToContact"
-            >
-              Обсудить проект
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-</template>
-
 <script setup>
-import {
-  ref,
-  reactive,
-  computed,
-  watch,
-  nextTick,
-  onMounted
-} from 'vue'
+import { computed, ref } from 'vue'
 
-import { gsap } from 'gsap'
+const popupOpened = ref(false)
 
-const selectedProject = ref('landing')
-const selectedCMS = ref('none')
-
-const priceRef = ref(null)
-
-const projects = [
+const categories = [
   {
     id: 'concept',
+
+    label: 'Концепт',
+
     title: 'Концепт',
-    description: 'UI, структура, верстка',
-    icon: '◎',
-    basePrice: 20000
-  },
-  {
-    id: 'landing',
-    title: 'Лендинг',
-    description: 'Продающая страница с анимациями',
-    icon: '▣',
-    basePrice: 35000
-  },
-  {
-    id: 'shop',
-    title: 'Интернет-магазин',
-    description: 'Каталог, фильтры и ecommerce',
-    icon: '◌',
-    basePrice: 80000
-  }
-]
 
-const cmsOptions = [
-  {
-    id: 'none',
-    label: 'Не нужна',
-    priceAdd: 0
-  },
-  {
-    id: 'wordpress',
-    label: 'WordPress',
-    priceAdd: 15000
-  },
-  {
-    id: 'joomla',
-    label: 'Joomla',
-    priceAdd: 12000
-  },
-  {
-    id: 'grav',
-    label: 'Grav',
-    priceAdd: 10000
-  }
-]
+    price: 'от 20 000 ₽',
 
-const options = reactive([
-  {
-    id: 1,
-    group: 'marketing',
-    label: 'Яндекс.Директ',
-    active: false,
-    priceAdd: 5000
-  },
-  {
-    id: 2,
-    group: 'marketing',
-    label: 'SEO оптимизация',
-    active: false,
-    priceAdd: 5000
-  },
-  {
-    id: 3,
-    group: 'marketing',
-    label: 'AEO оптимизация',
-    active: false,
-    priceAdd: 4000
-  },
-  {
-    id: 4,
-    group: 'performance',
-    label: 'Кеширование',
-    active: false,
-    priceAdd: 1000
-  },
-  {
-    id: 5,
-    group: 'performance',
-    label: 'Docker Compose',
-    active: false,
-    priceAdd: 1000
-  },
-  {
-    id: 6,
-    group: 'performance',
-    label: 'FastAPI backend',
-    active: false,
-    priceAdd: 20000
-  },
-  {
-    id: 7,
-    group: 'visual',
-    label: 'GSAP анимации',
-    active: false,
-    priceAdd: 10000
-  },
-  {
-    id: 8,
-    group: 'visual',
-    label: '3D визуализация',
-    active: false,
-    priceAdd: 15000
-  },
-  {
-    id: 9,
-    group: 'visual',
-    label: 'Лид-формы',
-    active: false,
-    priceAdd: 1000
-  }
-])
+    description:
+      'Быстрый запуск визуальной идеи или digital-концепции с акцентом на стиль и подачу.',
 
-const currentProject = computed(() =>
-  projects.find(p => p.id === selectedProject.value)
-)
+    duration: '3–5 дней',
 
-const currentCMS = computed(() =>
-  cmsOptions.find(c => c.id === selectedCMS.value)
-)
+    includes: [
+      'уникальный стиль',
+      'адаптивная версия',
+      'анимация',
+      '1–2 страницы',
+      'UI-концепция',
+    ],
 
-const marketingOptions = computed(() =>
-  options.filter(o => o.group === 'marketing')
-)
-
-const performanceOptions = computed(() =>
-  options.filter(o => o.group === 'performance')
-)
-
-const visualOptions = computed(() =>
-  options.filter(o => o.group === 'visual')
-)
-
-const activeOptions = computed(() =>
-  options.filter(o => o.active)
-)
-
-const estimatedTime = computed(() => {
-
-  if (selectedProject.value === 'shop') {
-    return '14–30 дней'
-  }
-
-  return '5–10 дней'
-})
-
-const totalPrice = computed(() => {
-
-  let total = currentProject.value.basePrice
-
-  total += currentCMS.value.priceAdd
-
-  total += activeOptions.value.reduce((sum, option) => {
-    return sum + option.priceAdd
-  }, 0)
-
-  return total
-})
-
-const formattedPrice = computed(() =>
-  totalPrice.value.toLocaleString('ru-RU')
-)
-
-async function scrollToContact() {
-
-  try {
-
-    await fetch('/api/calculator', {
-
-      method: 'POST',
-
-      headers: {
-        'Content-Type': 'application/json',
+    styles: [
+      {
+        title: 'Крафт',
+        accent: '#d7ff2f',
+        main: '/images/concept_food_main.webp',
       },
 
-      body: JSON.stringify({
+      {
+        title: 'Неон',
+        accent: '#2f6bff',
+        main: '/images/concept_him_main.webp',
+      },
 
-        type: currentProject.value.title,
+      {
+        title: 'Техно',
+        accent: '#d7ff2f',
+        main: '/images/concept_service_main.webp',
+      },
+    ],
+  },
 
-        cms: currentCMS.value.label,
+  {
+    id: 'landing',
 
-        options: activeOptions.value.map(o => o.label),
+    label: 'Лендинг',
 
-        price: totalPrice.value,
+    title: 'Лендинг',
 
-        time: estimatedTime.value,
+    price: 'от 35 000 ₽',
 
-      }),
+    description:
+      'Одностраничный сайт для услуг, продукта или компании с сильной подачей.',
 
-    });
+    duration: '5–10 дней',
 
-    alert('Конфигурация отправлена');
+    includes: [
+      'уникальный дизайн',
+      'адаптив',
+      'анимация',
+      'формы заявок',
+      'SEO-структура',
+    ],
 
-  } catch (err) {
+    styles: [
+      {
+        title: 'Эстетика',
+        accent: '#c8a8a1',
+        main: '/images/landing_cosmet_main.webp',
+      },
 
-    console.error(err);
+      {
+        title: 'Архитектура',
+        accent: '#ffbf36',
+        main: '/images/landing_remont_main.webp',
+      },
 
-    alert('Ошибка отправки');
+      {
+        title: 'Минимал',
+        accent: '#7367ff',
+        main: '/images/landing_repet_main.webp',
+      },
+    ],
+  },
 
-  }
+  {
+    id: 'shop',
 
+    label: 'Магазин',
+
+    title: 'Магазин',
+
+    price: 'от 85 000 ₽',
+
+    description:
+      'Интернет-магазин с каталогом, корзиной и системой управления товарами.',
+
+    duration: '10–20 дней',
+
+    includes: [
+      'каталог товаров',
+      'корзина',
+      'CMS-управление',
+      'адаптив',
+      'SEO-структура',
+    ],
+
+    styles: [
+      {
+        title: 'Тюнинг',
+        accent: '#ff3131',
+        main: '/images/shop_car_main.webp',
+      },
+
+      {
+        title: 'Питомцы',
+        accent: '#8aa84f',
+        main: '/images/shop_pet_main.webp',
+      },
+
+      {
+        title: 'Брутал',
+        accent: '#d7ff2f',
+        main: '/images/shop_protein_main.webp',
+      },
+    ],
+  },
+
+  {
+    id: 'business',
+
+    label: 'Бизнес',
+
+    title: 'Бизнес',
+
+    price: 'от 100 000 ₽',
+
+    description:
+      'Digital-системы и сайты для компаний со сложной структурой и сервисами.',
+
+    duration: '15–30 дней',
+
+    includes: [
+      'многостраничность',
+      'интерфейсы',
+      'CMS',
+      'адаптив',
+      'SEO',
+      'анимация',
+    ],
+
+    styles: [
+      {
+        title: 'Корпорат',
+        accent: '#6f58ff',
+        main: '/images/business_educ_main.webp',
+      },
+
+      {
+        title: 'SaaS',
+        accent: '#4f6fff',
+        main: '/images/business_it_main.webp',
+      },
+
+      {
+        title: 'Премиум',
+        accent: '#c89b62',
+        main: '/images/business_law_main.webp',
+      },
+    ],
+  },
+]
+
+const activeCategory = ref('business')
+const activeStyle = ref(0)
+
+const currentCategory = computed(() =>
+  categories.find((item) => item.id === activeCategory.value)
+)
+
+const currentStyle = computed(
+  () => currentCategory.value.styles[activeStyle.value]
+)
+
+const nextStyle = () => {
+  activeStyle.value =
+    (activeStyle.value + 1) %
+    currentCategory.value.styles.length
 }
 
-watch(totalPrice, async () => {
+const prevStyle = () => {
+  activeStyle.value =
+    (activeStyle.value - 1 + currentCategory.value.styles.length) %
+    currentCategory.value.styles.length
+}
 
-  await nextTick()
-
-  if (!priceRef.value) return
-
-  gsap.fromTo(
-    priceRef.value,
-    {
-      y: 8,
-      opacity: 0.5
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.3,
-      ease: 'power2.out'
-    }
-  )
-})
-
-onMounted(() => {
-
-  gsap.from('.folder', {
-    y: 20,
-    opacity: 0,
-    stagger: 0.15,
-    duration: 0.6,
-    ease: 'back.out(1.6)'
-  })
-
-  gsap.to('.folder-lights span', {
-    opacity: 0.6,
-    repeat: -1,
-    yoyo: true,
-    duration: 1,
-    stagger: 0.2
-  })
-})
+const switchCategory = (id) => {
+  activeCategory.value = id
+  activeStyle.value = 0
+}
 </script>
- 
+
+<template>
+  <section
+    class="showcase"
+    :style="{
+      '--accent': currentStyle.accent,
+    }"
+  >
+    <div class="container">
+      <div class="showcase__grid">
+        <aside class="showcase__left">
+          <div class="showcase__label">
+            <span></span>
+            DIGITAL НАПРАВЛЕНИЕ
+          </div>
+
+          <h2 class="showcase__title">
+            {{ currentCategory.title }}
+          </h2>
+
+          <div class="showcase__price">
+            {{ currentCategory.price }}
+          </div>
+
+          <p class="showcase__description">
+            {{ currentCategory.description }}
+          </p>
+
+          <div class="showcase__includes">
+            <div
+              v-for="item in currentCategory.includes"
+              :key="item"
+              class="showcase__include"
+            >
+              <span></span>
+              {{ item }}
+            </div>
+          </div>
+
+          <div class="showcase__footer">
+            <div class="showcase__duration">
+              Срок разработки:
+              <strong>{{ currentCategory.duration }}</strong>
+            </div>
+
+            <a
+              href="#contact"
+              class="showcase__button"
+            >
+              обсудить проект
+            </a>
+          </div>
+        </aside>
+
+        <div class="showcase__right">
+          <div class="showcase__tabs">
+            <button
+              v-for="category in categories"
+              :key="category.id"
+              class="showcase__tab"
+              :class="{ active: activeCategory === category.id }"
+              @click="switchCategory(category.id)"
+            >
+              {{ category.label }}
+            </button>
+          </div>
+
+          <div
+            class="showcase__preview"
+            @click="popupOpened = true"
+          >
+            <img
+              :src="currentStyle.main"
+              :alt="currentStyle.title"
+            />
+
+            <div class="showcase__preview-overlay">
+              <button
+                class="showcase__arrow"
+                @click.stop="prevStyle"
+              >
+                ←
+              </button>
+
+              <div class="showcase__style-tabs">
+                <button
+                  v-for="(style, index) in currentCategory.styles"
+                  :key="style.title"
+                  class="showcase__style-tab"
+                  :class="{ active: activeStyle === index }"
+                  @click.stop="activeStyle = index"
+                >
+                  {{ style.title }}
+                </button>
+              </div>
+
+              <button
+                class="showcase__arrow"
+                @click.stop="nextStyle"
+              >
+                →
+              </button>
+            </div>
+          </div>
+
+          <div class="showcase__mobile-tabs">
+            <button
+              v-for="(style, index) in currentCategory.styles"
+              :key="style.title"
+              class="showcase__style-tab"
+              :class="{ active: activeStyle === index }"
+              @click="activeStyle = index"
+            >
+              {{ style.title }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <Transition name="popup">
+      <div
+        v-if="popupOpened"
+        class="showcase-popup"
+        @click="popupOpened = false"
+      >
+        <button
+          class="showcase-popup__close"
+          @click="popupOpened = false"
+        >
+          ×
+        </button>
+
+        <img
+          :src="currentStyle.main"
+          :alt="currentStyle.title"
+          @click.stop
+        />
+      </div>
+    </Transition>
+  </section>
+</template>
