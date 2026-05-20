@@ -2,7 +2,7 @@
 import footerMascot from '@assets/images/footer_mascot.webp';
 ---
 
-<section class="footer-cta">
+<section class="footer-cta" id="contacts">
 
   <div class="footer-cta__noise"></div>
 
@@ -38,21 +38,21 @@ import footerMascot from '@assets/images/footer_mascot.webp';
         </h2>
 
         <p class="footer-cta__description">
-          Делаем digital-проекты,
-          которые ощущаются как продукт,
-          а не очередной шаблонный сайт.
+          Делаем digital-проекты
+          с продуктовой логикой,
+          сильным UX и точной подачей.
         </p>
 
         <div class="footer-cta__actions">
 
           <button
-          class="header__button"
-          data-popup
-          type="button"
-          aria-label="Обсудить проект"
-        >
-          обсудить проект
-        </button>
+            class="footer-cta__button footer-cta__button--primary"
+            data-popup
+            type="button"
+            aria-label="Обсудить проект"
+          >
+            обсудить проект
+          </button>
  
 
         </div>
@@ -73,10 +73,10 @@ import footerMascot from '@assets/images/footer_mascot.webp';
           </span>
 
           <a
-            href="tel:88005553535"
+            href="tel:89778656828"
             class="footer-cta__contact"
           >
-            8 800 555 35 35
+            8 977 865 68 28
           </a>
 
         </div>
@@ -108,55 +108,22 @@ import footerMascot from '@assets/images/footer_mascot.webp';
 
         <div class="footer-cta__nav">
 
-          <a href="#">
+          <a href="https://t.me/vkladka01" target="_blank" rel="noopener noreferrer">
             Телеграм
           </a>
 
-          <a href="#">
+          <a href="https://vk.com/01vkladka" target="_blank" rel="noopener noreferrer">
             Вконтакте
           </a>
 
-          <a href="#">
+          <a href="https://wa.me/79778656828" target="_blank" rel="noopener noreferrer">
             Ватсапп
           </a>
 
         </div>
 
       </div>
-
-      <!-- NAVIGATION -->
-
-      <div class="footer-cta__links">
-
-        <span class="footer-cta__caption">
-          навигация
-        </span>
-
-        <div class="footer-cta__nav">
-
-          <a href="#projects">
-            проекты
-          </a>
-
-          <a href="#services">
-            услуги
-          </a>
-
-          <a href="#process">
-            процесс
-          </a>
-
-          <a href="#pricing">
-            цены
-          </a>
-
-          <a href="#contacts">
-            контакты
-          </a>
-
-        </div>
-
-      </div>
+ 
 
 </div>
 
@@ -173,12 +140,13 @@ import footerMascot from '@assets/images/footer_mascot.webp';
       <span>
         сайты, которые не закрывают
       </span>
-        <a
-          href="#"
-          onclick="window.dispatchEvent(new Event('open-policy')); return false;"
+        <button
+          type="button"
+          class="footer-cta__policy"
+          onclick="window.dispatchEvent(new Event('open-policy'))"
         >
           политика конфиденциальности
-        </a>
+        </button>
 
     </div>
 

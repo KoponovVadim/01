@@ -7,6 +7,12 @@
   --lime: #d9ff00;
 
   --border: rgba(255,255,255,.08);
+
+  --font-ui: 'Inter', sans-serif;
+  --font-display: 'Tektur', sans-serif;
+
+  --title-big: clamp(44px, 6.2vw, 108px);
+  --title-medium: clamp(28px, 3.6vw, 62px);
 }
 
 html {
@@ -18,13 +24,23 @@ body {
 
   color: var(--text);
 
-  
-  font-family: Inter, sans-serif;
+  font-family: var(--font-ui);
 
   font-size: 16px;
   line-height: 1.5;
 
   overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Selection */

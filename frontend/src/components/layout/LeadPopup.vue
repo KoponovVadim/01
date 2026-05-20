@@ -40,7 +40,7 @@
 
           <p class="lead-popup__description">
             Ответим, зададим пару вопросов
-            и предложим решение под ваш проект.
+            и предложим решение под вашу задачу.
           </p>
 
         </div>
@@ -340,6 +340,9 @@ onUnmounted(() => {
     box-shadow:
       0 30px 80px rgba(0,0,0,.45);
 
+    transition:
+      transform .25s ease;
+
     @media (max-width: 768px) {
       padding:
         26px
@@ -467,12 +470,9 @@ onUnmounted(() => {
 
     color: #fff;
 
-    font-family:
-      'Tektur',
-      sans-serif;
+    font-family: var(--font-display);
 
-    font-size:
-      clamp(34px, 4vw, 56px);
+    font-size: var(--title-medium);
 
     font-weight: 800;
 
@@ -652,5 +652,12 @@ onUnmounted(() => {
 .popup-fade-enter-from,
 .popup-fade-leave-to {
   opacity: 0;
+}
+
+.popup-fade-enter-from .lead-popup__window,
+.popup-fade-leave-to .lead-popup__window {
+  transform:
+    translateY(8px)
+    scale(.985);
 }
 </style>

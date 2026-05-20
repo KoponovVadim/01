@@ -14,14 +14,14 @@ const categories = [
     price: 'от 20 000 ₽',
 
     description:
-      'Быстрый запуск визуальной идеи или digital-концепции с акцентом на стиль и подачу.',
+      'Быстрый запуск digital-концепции с акцентом на визуал, стиль и подачу.',
 
     duration: '3–5 дней',
 
     includes: [
       'уникальный стиль',
-      'адаптивная версия',
-      'анимация',
+      'адаптив',
+      'микро-анимации',
       '1–2 страницы',
       'UI-концепция',
     ],
@@ -57,27 +57,27 @@ const categories = [
     price: 'от 35 000 ₽',
 
     description:
-      'Одностраничный сайт для услуг, продукта или компании с сильной подачей.',
+      'Одностраничный сайт с сильной подачей для услуги, продукта или бренда.',
 
     duration: '5–10 дней',
 
     includes: [
       'уникальный дизайн',
       'адаптив',
-      'анимация',
+      'анимации',
       'формы заявок',
       'SEO-структура',
     ],
 
     styles: [
       {
-        title: 'Эстетика',
+        title: 'Пастель',
         accent: '#c8a8a1',
         main: '/images/landing_cosmet_main.webp',
       },
 
       {
-        title: 'Архитектура',
+        title: 'Тёплый',
         accent: '#ffbf36',
         main: '/images/landing_remont_main.webp',
       },
@@ -100,7 +100,7 @@ const categories = [
     price: 'от 85 000 ₽',
 
     description:
-      'Интернет-магазин с каталогом, корзиной и системой управления товарами.',
+      'Интернет-магазин с каталогом, корзиной и полноценным управлением товарами.',
 
     duration: '10–20 дней',
 
@@ -114,13 +114,13 @@ const categories = [
 
     styles: [
       {
-        title: 'Тюнинг',
+        title: 'Скорость',
         accent: '#ff3131',
         main: '/images/shop_car_main.webp',
       },
 
       {
-        title: 'Питомцы',
+        title: 'Лайф',
         accent: '#8aa84f',
         main: '/images/shop_pet_main.webp',
       },
@@ -136,41 +136,41 @@ const categories = [
   {
     id: 'business',
 
-    label: 'Бизнес',
+    label: 'Премиум',
 
-    title: 'Бизнес',
+    title: 'Премиум',
 
     price: 'от 100 000 ₽',
 
     description:
-      'Digital-системы и сайты для компаний со сложной структурой и сервисами.',
+      'Сложные digital-проекты, сервисы и интерфейсы для компаний и брендов.',
 
     duration: '15–30 дней',
 
     includes: [
       'многостраничность',
       'интерфейсы',
-      'CMS',
+      'CMS-управление',
       'адаптив',
-      'SEO',
-      'анимация',
+      'SEO-структура',
+      'анимации',
     ],
 
     styles: [
       {
-        title: 'Корпорат',
+        title: 'Фиолет',
         accent: '#6f58ff',
         main: '/images/business_educ_main.webp',
       },
 
       {
-        title: 'SaaS',
+        title: 'Синий',
         accent: '#4f6fff',
         main: '/images/business_it_main.webp',
       },
 
       {
-        title: 'Премиум',
+        title: 'Золото',
         accent: '#c89b62',
         main: '/images/business_law_main.webp',
       },
@@ -211,10 +211,12 @@ const switchCategory = (id) => {
 <a name="calculator"></a>
   <section
     class="showcase"
+    id="services"
     :style="{
       '--accent': currentStyle.accent,
     }"
   >
+    <span id="pricing" aria-hidden="true"></span>
     <div class="container">
       <div class="showcase__grid">
         <aside class="showcase__left">

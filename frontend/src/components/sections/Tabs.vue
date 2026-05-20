@@ -1,157 +1,256 @@
 <template>
-  <section class="tabs">
+  <section class="tabs" id="projects">
 
-    <div class="container">
+    <div class="tabs__bg"></div>
 
-      <!-- TOP -->
+    <div class="tabs__wrap">
 
-      <div class="tabs__top">
+      <!-- HEADER -->
 
-        <div class="tabs__left">
+      <div class="tabs__header">
 
-          <span class="tabs__label">
-            концепты
-          </span>
+        <div class="tabs__hero">
+
+          <div class="tabs__badge">
+
+            <span></span>
+
+            реализованные кейсы
+
+          </div>
 
           <h2 class="tabs__title">
-            ГОТОВЫЕ
+
+            ОТКРЫТЫЕ
             <br />
-            ВКЛАДКИ
+
+            <span>
+              ВКЛАДКИ
+            </span>
+
           </h2>
 
         </div>
 
-        <div class="tabs__right">
+        <!-- COUNTER -->
 
-          <p class="tabs__description">
-            Готовые концепты сайтов и интерфейсов,
-            которые можно адаптировать под ваш проект.
+        <div class="tabs__counter">
+
+          <div class="tabs__counter-ring"></div>
+
+          <small>
+            реализовано
+            <br />
+            кейсов
+          </small>
+
+          <strong>
+
+            <span>0</span>
+            <span>3</span>
+
+          </strong>
+
+          <p>
+            кейса в портфеле
+
           </p>
-
-          <div class="tabs__controls">
-
-            <div class="tabs__counter">
-
-              <strong>
-                06
-              </strong>
-
-              <span>
-                концептов
-              </span>
-
-            </div>
-
-            <div class="tabs__buttons">
-
-              <button
-                class="tabs__button"
-                type="button"
-                @click="scrollPrev"
-              >
-                ←
-              </button>
-
-              <button
-                class="tabs__button"
-                type="button"
-                @click="scrollNext"
-              >
-                →
-              </button>
-
-            </div>
-
-          </div>
 
         </div>
 
       </div>
 
-      <!-- SLIDER -->
+      <!-- CASES -->
 
-      <div
-        ref="slider"
-        class="tabs__slider"
-      >
+      <div class="tabs__cases">
 
-        <article
-          v-for="(tab, index) in tabs"
-          :key="index"
-          class="tab-card"
-          @click="openModal(tab.image)"
+        <!-- CARD -->
+
+        <a
+          href="https://re-ii.ru"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tabs-card tabs-card--cyan"
         >
 
-          <div class="tab-card__image">
+          <img
+            src="/images/reii.webp"
+            alt="Проект RE-II"
+            class="tabs-card__image"
+          />
 
-            <img
-              :src="tab.image"
-              :alt="tab.title"
-            />
+          <div class="tabs-card__overlay"></div>
 
-          </div>
+          <div class="tabs-card__content">
 
-          <div class="tab-card__overlay"></div>
+            <div class="tabs-card__top">
 
-          <div class="tab-card__top">
+              <div class="tabs-card__id">
+                01
+              </div>
 
-            <span class="tab-card__number">
-              0{{ index + 1 }}
-            </span>
+              <div>
 
-          </div>
+                <div class="tabs-card__domain">
+                  RE-II
+                </div>
 
-          <div class="tab-card__content">
+                <div class="tabs-card__type">
+                  AI / MEDIA
+                </div>
 
-            <div>
-
-              <h3 class="tab-card__title">
-                {{ tab.title }}
-              </h3>
-
-              <span class="tab-card__meta">
-                {{ tab.meta }}
-              </span>
+              </div>
 
             </div>
 
-            <span class="tab-card__arrow">
-              ↗
-            </span>
+            <div class="tabs-card__bottom">
+
+              <h3 class="tabs-card__title">
+
+                МЕДИА
+                <br />
+                ПРО AI
+
+              </h3>
+
+              <div class="tabs-card__tags">
+
+                <span>WordPress</span>
+                <span>UIKIT</span>
+                <span>Custom</span>
+
+              </div>
+
+            </div>
 
           </div>
 
-        </article>
+        </a>
 
-      </div>
+        <!-- CARD -->
 
-    </div>
-
-    <!-- MODAL -->
-
-    <div
-      v-if="activeImage"
-      class="tabs-modal"
-      @click="closeModal"
-    >
-
-      <div
-        class="tabs-modal__content"
-        @click.stop
-      >
-
-        <button
-          class="tabs-modal__close"
-          @click="closeModal"
-          type="button"
+        <a
+          href="https://non-stop-service.ru"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tabs-card tabs-card--orange"
         >
-          ×
-        </button>
 
-        <img
-          :src="activeImage"
-          alt=""
-        />
+          <img
+            src="/images/nonstop.webp"
+            alt="Проект NON-STOP"
+            class="tabs-card__image"
+          />
+
+          <div class="tabs-card__overlay"></div>
+
+          <div class="tabs-card__content">
+
+            <div class="tabs-card__top">
+
+              <div class="tabs-card__id">
+                02
+              </div>
+
+              <div>
+
+                <div class="tabs-card__domain">
+                  NON-STOP
+                </div>
+
+                <div class="tabs-card__type">
+                  СЕРВИС
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="tabs-card__bottom">
+
+              <h3 class="tabs-card__title">
+
+                РЕМОНТ
+                ТЕХНИКИ
+
+              </h3>
+
+              <div class="tabs-card__tags">
+
+                <span>Astro</span>
+                <span>Vue</span>
+                <span>GSAP</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
+
+        <!-- CARD -->
+
+        <a
+          href="https://ремконсоль.рф"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tabs-card tabs-card--lime"
+        >
+
+          <img
+            src="/images/remconsole.webp"
+            alt="Проект РЕМКОНСОЛЬ"
+            class="tabs-card__image"
+          />
+
+          <div class="tabs-card__overlay"></div>
+
+          <div class="tabs-card__content">
+
+            <div class="tabs-card__top">
+
+              <div class="tabs-card__id">
+                03
+              </div>
+
+              <div>
+
+                <div class="tabs-card__domain">
+                  РЕМКОНСОЛЬ
+                </div>
+
+                <div class="tabs-card__type">
+                  СЕРВИС
+                </div>
+
+              </div>
+
+            </div>
+
+            <div class="tabs-card__bottom">
+
+              <h3 class="tabs-card__title">
+
+                РЕМОНТ
+                <br />
+                КОНСОЛЕЙ
+
+              </h3>
+
+              <div class="tabs-card__tags">
+
+                <span>Astro</span>
+                <span>Vue</span>
+                <span>GSAP</span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </a>
 
       </div>
 
@@ -159,97 +258,3 @@
 
   </section>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-
-const slider = ref(null);
-
-const activeImage = ref(null);
-
-const tabs = [
-  {
-    title: 'КОЖАЕД.РФ',
-    meta: 'косметология',
-    image: '/images/tab_1.webp',
-  },
-
-  {
-    title: 'НЕСПЯЩИЕ.РФ',
-    meta: 'кальян-бар',
-    image: '/images/tab_2.webp',
-  },
-
-  {
-    title: 'ЗАВОД.РФ',
-    meta: 'промышленный сайт',
-    image: '/images/tab_3.webp',
-  },
-
-  {
-    title: 'REBOOT.РФ',
-    meta: 'ремонт приставок',
-    image: '/images/tab_4.webp',
-  },
-
-  {
-    title: 'CTRL+HELP.РФ',
-    meta: 'it-помощь',
-    image: '/images/tab_5.webp',
-  },
-
-  {
-    title: 'PRINT+PLAY.РФ',
-    meta: 'типография',
-    image: '/images/tab_6.webp',
-  },
-];
-
-const getCardWidth = () => {
-
-  if (!slider.value) return 0;
-
-  const card = slider.value.querySelector('.tab-card');
-
-  if (!card) return 0;
-
-  const gap = parseFloat(
-    getComputedStyle(slider.value).gap
-  );
-
-  return card.offsetWidth + gap;
-};
-
-const scrollNext = () => {
-
-  if (!slider.value) return;
-
-  slider.value.scrollBy({
-    left: getCardWidth(),
-  });
-};
-
-const scrollPrev = () => {
-
-  if (!slider.value) return;
-
-  slider.value.scrollBy({
-    left: -getCardWidth(),
-  });
-};
-
-const openModal = (image) => {
-
-  activeImage.value = image;
-
-  document.body.style.overflow = 'hidden';
-};
-
-const closeModal = () => {
-
-  activeImage.value = null;
-
-  document.body.style.overflow = '';
-};
-</script>
- 

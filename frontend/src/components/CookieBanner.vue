@@ -405,12 +405,9 @@ function handleOpenPolicy() {
 
     color: #fff;
 
-    font-family:
-      'Tektur',
-      sans-serif;
+    font-family: var(--font-display);
 
-    font-size:
-      clamp(28px, 4vw, 44px);
+    font-size: var(--title-medium);
 
     line-height: .92;
 
@@ -589,12 +586,9 @@ function handleOpenPolicy() {
 
     color: #fff;
 
-    font-family:
-      'Tektur',
-      sans-serif;
+    font-family: var(--font-display);
 
-    font-size:
-      clamp(34px, 5vw, 62px);
+    font-size: var(--title-medium);
 
     line-height: .92;
 

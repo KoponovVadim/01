@@ -63,23 +63,6 @@ onBeforeUnmount(() => {
           class="floating-contact__item"
         >
 
-          <span class="floating-contact__icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M21 4L3 11.53L9.84 14.16L12.47 21L20 3.99998L14.16 14.16"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-          </span>
-
           <span class="floating-contact__text">
             telegram
           </span>
@@ -95,28 +78,9 @@ onBeforeUnmount(() => {
           class="floating-contact__item"
         >
 
-          <span class="floating-contact__icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M4 7C4 5.34315 5.34315 4 7 4H17C18.6569 4 20 5.34315 20 7V17C20 18.6569 18.6569 20 17 20H7C5.34315 20 4 18.6569 4 17V7Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-
-              <path
-                d="M8 9C8.4 13 10.4 15 11 15V11.8C12.6 11.8 13.8 13 14.2 15H16C15.5 12.8 14.4 11.6 13 11.2C14.4 10.4 15.2 9 15.5 7H13.8C13.4 8.6 12.4 10 11 10V7H9.2V12C8.6 11.8 7.6 10.6 7.4 9H8Z"
-                fill="currentColor"
-              />
-            </svg>
-
-          </span>
 
           <span class="floating-contact__text">
-            vk
+            Вконтакте
           </span>
 
         </a>
@@ -128,32 +92,10 @@ onBeforeUnmount(() => {
           class="floating-contact__item"
           @click="openPopup"
         >
-
-          <span class="floating-contact__icon">
-
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M4 5H20V19H4V5Z"
-                stroke="currentColor"
-                stroke-width="1.8"
-              />
-
-              <path
-                d="M4 7L12 13L20 7"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-
-          </span>
+ 
 
           <span class="floating-contact__text">
-            форма
+            Форма
           </span>
 
         </button>
