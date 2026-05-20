@@ -208,6 +208,7 @@ const switchCategory = (id) => {
 </script>
 
 <template>
+<a name="calculator"></a>
   <section
     class="showcase"
     :style="{
@@ -250,13 +251,14 @@ const switchCategory = (id) => {
               Срок разработки:
               <strong>{{ currentCategory.duration }}</strong>
             </div>
-
-            <a
-              href="#contact"
-              class="showcase__button"
-            >
-              обсудить проект
-            </a>
+          <button
+          class="showcase__button"
+          data-popup
+          type="button"
+          aria-label="Обсудить проект"
+          >
+          обсудить проект
+        </button>
           </div>
         </aside>
 

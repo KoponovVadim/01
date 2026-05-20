@@ -6,15 +6,17 @@ import Stack from '@components/sections/Stack.astro';
 import Tabs from '@components/sections/Tabs.vue'; 
 import Calc from '@components/sections/Calc.vue'; 
 import Footer from '@components/layout/Footer.astro';
+import Contact from '@components/layout/contact.vue';
 import CookieBanner from '../components/CookieBanner.vue';
 ---
 
 <MainLayout>
   <Header />
   <HeroSection />
-  <Tabs client:load/>
-  <Calc client:load/>
   <Stack />
+  <Calc client:load/>
+  <Tabs client:load/>
   <Footer />
   <CookieBanner client:load/>
+  <Contact client:load/>
 </MainLayout>
